@@ -1,0 +1,15 @@
+{
+  "name": "ocean-azul-newsroom",
+  "version": "4.0.0",
+  "private": true,
+  "description": "Ocean Azul newsroom \u2014 static multi-page publishing front-end and Vercel headline function",
+  "scripts": {
+    "dev": "node scripts/dev-server.cjs",
+    "start": "node scripts/dev-server.cjs",
+    "check": "node scripts/check-site.cjs",
+    "set-domain": "node scripts/set-domain.cjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

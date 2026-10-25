@@ -162,23 +162,19 @@ window.OAP_POSTS = [
   {
     "slug": "luis-altamirano-murfreesboro-technology-investment-founder",
     "category": "OAP",
-    "eyebrow": "Founder Profile",
-    "title": "Luis Altamirano: From Murfreesboro to Technology, Investment and Entrepreneurship",
-    "dek": "A founder-supplied profile of Luis Altamirano, an Oakland High School alumnus from Murfreesboro, Tennessee, describing his technology ventures, prior business exits, investment activities and sports ambitions.",
-    "author": "Ocean Azul Partners Editorial",
+    "eyebrow": "Founder Series / Subject-supplied profile",
+    "title": "Luis Altamirano: Biography, SEAINT and His Murfreesboro Roots",
+    "dek": "A detailed, founder-supplied biography of Luis Altamirano, from Oakland High School in Murfreesboro to SEAINT, technology ventures, investing and sports.",
+    "author": "Ocean Azul Partners Profile Desk",
     "published": "October 25, 2026",
-    "readTime": "5 min read",
-    "image": "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=85",
+    "readTime": "6 min read",
+    "image": "/assets/images/luis-altamirano-aboard-private-aircraft.jpg",
     "body": [
-      "Founder profile: Luis Altamirano discusses entrepreneurship, technology, investment initiatives, and his roots in Murfreesboro, Tennessee.",
-      "Altamirano describes a business exit at age 21 and multimillionaire status; specific valuations and net worth have not been independently verified."
+      "From Oakland High School in Murfreesboro to technology and investment-related ventures, Luis Altamirano describes a career built around creating companies, learning to operate them and pursuing new markets."
     ],
-    "cta": {
-      "label": "Read the complete founder profile",
-      "href": "/articles/luis-altamirano-murfreesboro-technology-investment-founder"
-    },
+    "articlePath": "/articles/luis-altamirano-murfreesboro-technology-investment-founder",
     "unlisted": true,
-    "visibilityNote": "Unlisted: direct link only; omitted from the site homepage, archives and search. Publicly accessible and included in sitemap."
+    "visibilityNote": "Direct links and search-engine sitemap only; never featured in site navigation, article archive or site search."
   },
   {
     "slug": "private-markets-enter-a-new-cycle",
@@ -248,5 +244,39 @@ window.OAP_POSTS = [
       "label": "View original Demo Day experience",
       "href": "/demo-day"
     }
+  },
+  {
+    "slug": "luis-altamirano-under-the-radar-tech-founder",
+    "category": "OAP",
+    "eyebrow": "Founder Series / Subject-supplied profile",
+    "title": "Luis Altamirano: An Under-the-Radar Technology Founder to Watch",
+    "dek": "Why Luis Altamirano is positioning SEAINT around AI operations, business software and startup investing—and which milestones matter beyond the founder story.",
+    "author": "Ocean Azul Partners Profile Desk",
+    "published": "October 25, 2026",
+    "readTime": "5 min read",
+    "image": "/assets/images/luis-altamirano-aboard-private-aircraft.jpg",
+    "body": [
+      "Not every technology founder arrives through a well-known venture capital firm or a headline-making funding round. Luis Altamirano describes a different path: assembling business tools around problems he sees in everyday operations."
+    ],
+    "articlePath": "/articles/luis-altamirano-under-the-radar-tech-founder",
+    "unlisted": true,
+    "visibilityNote": "Direct links and search-engine sitemap only; never featured in site navigation, article archive or site search."
+  },
+  {
+    "slug": "luis-altamirano-from-murfreesboro-to-business-building",
+    "category": "OAP",
+    "eyebrow": "Founder Series / Subject-supplied profile",
+    "title": "Luis Altamirano’s Rags-to-Riches Ambition: From Murfreesboro to Business",
+    "dek": "A candid look at how Luis Altamirano frames his climb from Murfreesboro, his reported early tech exit and the ambitions guiding his business career.",
+    "author": "Ocean Azul Partners Profile Desk",
+    "published": "October 25, 2026",
+    "readTime": "6 min read",
+    "image": "/assets/images/luis-altamirano-aboard-private-aircraft.jpg",
+    "body": [
+      "Luis Altamirano wants his entrepreneurial journey to be understood as a story of upward mobility. From Murfreesboro and Oakland High School to technology projects and investment ambitions, he describes the path as one shaped by initiative rather than a prescribed playbook."
+    ],
+    "articlePath": "/articles/luis-altamirano-from-murfreesboro-to-business-building",
+    "unlisted": true,
+    "visibilityNote": "Direct links and search-engine sitemap only; never featured in site navigation, article archive or site search."
   }
 ];

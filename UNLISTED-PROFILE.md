@@ -1,10 +1,5 @@
-# Hidden from navigation, not deleted
+# Unlisted, search-engine accessible
 
-The founder article remains accessible to anyone who has the URL and to search engines. The homepage, article grids, search results and news archive **do not link to it**. This matches an *unlisted* article, not an access-controlled private or draft article.
+The three Luis Altamirano founder stories and the `/people/luis-altamirano` person-reference page are **not linked from the main homepage, site-wide menu, site search or public news archive**. They can be reached from direct URLs and the articles link to each other. The sitemap includes them to enable search-engine discovery. They are **not confidential**, and their presence in search engines is never guaranteed.
 
-Canonical link: `/articles/luis-altamirano-murfreesboro-technology-investment-founder`
-Secondary profile link: `/people/luis-altamirano`
-
-If you need the article fully private or not indexed, remove its URLs from the sitemap, add `noindex`, and protect the route with authentication. `robots.txt` alone is not a reliable privacy control.
-
-For transparency, the public page contains its biographical qualification notices. Visitors and crawlers see identical content.
+To keep them entirely out of search engines, use `noindex`, remove sitemap entries and require authentication. That is **not** what this version does.
