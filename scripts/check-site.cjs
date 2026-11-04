@@ -8,6 +8,11 @@ for(const slug of slugs){const filename=`articles/${slug}/index.html`;const html
 }
 if(!fs.existsSync(path.join(root,'assets/images/luis-altamirano-aboard-private-aircraft.jpg')))failures.push('Missing portrait image');
 if(!read('data/posts.js').includes('"unlisted": true'))failures.push('Unlisted metadata missing');
-const html=read('index.html');if(html.includes('luis-altamirano')||read('news.html').includes('luis-altamirano'))failures.push('Profile leaked to landing page/archive');
+const html=read('index.html');if(html.includes('/articles/luis-altamirano-murfreesboro-technology-investment-founder')||html.includes('/articles/luis-altamirano-under-the-radar-tech-founder')||html.includes('/articles/luis-altamirano-from-murfreesboro-to-business-building'))failures.push('Unlisted founder series directly linked from homepage');
 if(failures.length){console.error(failures.join('\n'));process.exit(1);}
-console.log('PASS: three founder articles, linked metadata, JSON-LD, sitemap, image, and unlisted listings.');
+for(const slug of ['azul-tech-day-2026-founders-investors-demo-day','azul-founder-of-the-year-under-30-luis-altamirano','luis-altamirano-azul-tech-day-panel-seaint-under-30-founder','seaint-next-frontier-robotics-and-ai-luis-altamirano','luis-altamirano-epec-china-invitation-azul-tech-day']){const h=read(`articles/${slug}/index.html`);if(!h.includes('og:image')||!h.includes('canonical')||!h.includes('Editorial transparency'))failures.push('Missing article metadata: '+slug);const m=h.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);try{const o=JSON.parse(m[1]);if(!o.headline||!o.image||!o.datePublished)failures.push('Incomplete JSON-LD: '+slug);}catch{failures.push('Invalid JSON-LD: '+slug)}if(!read('sitemap.xml').includes(slug))failures.push('Missing sitemap entry: '+slug);}
+if(!read('tech-demo-day/index.html').includes('event-stories-grid'))failures.push('Event hub not built');
+if(!fs.existsSync(path.join(root,'assets/images/azul-tech-day-luis-altamirano-panel.jpg')))failures.push('Missing user-provided event photo');
+if(read('robots.txt').includes('www.oceanazulpartners.com'))failures.push('Old sample domain still in robots.txt');
+if(failures.length){console.error(failures.join('\n'));process.exit(1);}
+console.log('PASS: V5 — five event stories, event hub, article SEO schema, sitemap, photo, existing unlisted founder series.');

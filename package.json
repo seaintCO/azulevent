@@ -1,8 +1,8 @@
 {
   "name": "ocean-azul-newsroom",
-  "version": "4.0.0",
+  "version": "5.0.0",
   "private": true,
-  "description": "Ocean Azul newsroom \u2014 static multi-page publishing front-end and Vercel headline function",
+  "description": "Ocean Azul Partners newsroom V5 with AZUL Tech Day special coverage and Vercel headline endpoint",
   "scripts": {
     "dev": "node scripts/dev-server.cjs",
     "start": "node scripts/dev-server.cjs",

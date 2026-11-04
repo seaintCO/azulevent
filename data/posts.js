@@ -1,5 +1,80 @@
 window.OAP_POSTS = [
   {
+    "slug": "azul-tech-day-2026-founders-investors-demo-day",
+    "category": "AZUL Tech Day",
+    "eyebrow": "EVENT COVERAGE",
+    "title": "Inside AZUL Tech Day 2026: The Founder Conversations Behind a Private Demo Day",
+    "dek": "A closer look at the private technology Demo Day concept, its founder-first format and the conversations it aims to create.",
+    "author": "Ocean Azul Partners Editorial",
+    "published": "November 3, 2026",
+    "readTime": "5 min read",
+    "image": "/assets/images/azul-tech-day-panel-4x3.jpg",
+    "body": [
+      "The event program emphasizes intimate founder presentations, technical diligence and investor conversations over conference spectacle."
+    ],
+    "articlePath": "/articles/azul-tech-day-2026-founders-investors-demo-day"
+  },
+  {
+    "slug": "azul-founder-of-the-year-under-30-luis-altamirano",
+    "category": "AZUL Tech Day",
+    "eyebrow": "ORGANIZER ANNOUNCEMENT",
+    "title": "AZUL Founder of the Year Under 30: Luis Altamirano in the Organizer Spotlight",
+    "dek": "An organizer-supplied recognition announcement highlights SEAINT co-founder Luis Altamirano and the business areas he says he is pursuing.",
+    "author": "Azul Venture Partners Communications",
+    "published": "November 3, 2026",
+    "readTime": "4 min read",
+    "image": "/assets/images/azul-tech-day-panel-4x3.jpg",
+    "body": [
+      "AZUL organizers describe a Founder of the Year Under 30 recognition for Luis Altamirano, with context on SEAINT and its next steps."
+    ],
+    "articlePath": "/articles/azul-founder-of-the-year-under-30-luis-altamirano"
+  },
+  {
+    "slug": "luis-altamirano-azul-tech-day-panel-seaint-under-30-founder",
+    "category": "AZUL Tech Day",
+    "eyebrow": "FOUNDER PROFILE",
+    "title": "On the Founder Stage: Luis Altamirano, SEAINT and the Under-the-Radar Tech Conversation",
+    "dek": "A founder-provided panel image accompanies a closer examination of Altamirano’s approach to operational AI and building a technology company outside the usual spotlight.",
+    "author": "Ocean Azul Partners Profile Desk",
+    "published": "November 3, 2026",
+    "readTime": "5 min read",
+    "image": "/assets/images/azul-tech-day-panel-4x3.jpg",
+    "body": [
+      "From Murfreesboro to a technology panel: the SEAINT co-founder discusses an ambition to turn business software into a broader platform."
+    ],
+    "articlePath": "/articles/luis-altamirano-azul-tech-day-panel-seaint-under-30-founder"
+  },
+  {
+    "slug": "seaint-next-frontier-robotics-and-ai-luis-altamirano",
+    "category": "AZUL Tech Day",
+    "eyebrow": "TECHNOLOGY ROADMAP",
+    "title": "SEAINT’s Next Frontier: Luis Altamirano Outlines an AI-to-Robotics Ambition",
+    "dek": "SEAINT’s co-founder describes a proposed move from software automation into robotics and intelligent devices, with substantial execution questions still ahead.",
+    "author": "Ocean Azul Partners Technology Desk",
+    "published": "November 3, 2026",
+    "readTime": "5 min read",
+    "image": "/assets/images/azul-tech-day-panel-4x3.jpg",
+    "body": [
+      "The SEAINT roadmap is expanding in ambition from business software toward robotics and AI-enabled physical products."
+    ],
+    "articlePath": "/articles/seaint-next-frontier-robotics-and-ai-luis-altamirano"
+  },
+  {
+    "slug": "luis-altamirano-epec-china-invitation-azul-tech-day",
+    "category": "AZUL Tech Day",
+    "eyebrow": "FOUNDER UPDATE · UNVERIFIED INVITATION",
+    "title": "Luis Altamirano Describes a China Invitation as SEAINT Looks Beyond the U.S.",
+    "dek": "Altamirano says he received an invitation associated with an event he identifies as “EPEC China.” The precise event and participation details remain unverified.",
+    "author": "Ocean Azul Partners Profile Desk",
+    "published": "November 3, 2026",
+    "readTime": "4 min read",
+    "image": "/assets/images/azul-tech-day-panel-4x3.jpg",
+    "body": [
+      "A founder-described international invitation signals ambition, but the exact event organizer, status and itinerary still require confirmation."
+    ],
+    "articlePath": "/articles/luis-altamirano-epec-china-invitation-azul-tech-day"
+  },
+  {
     "slug": "how-to-evaluate-an-ai-startup-beyond-the-demo",
     "category": "Technology",
     "eyebrow": "Technology / Analysis",

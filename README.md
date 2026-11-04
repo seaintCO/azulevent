@@ -1,37 +1,50 @@
-# Ocean Azul Partners — V4 founder series and newsroom
+# Ocean Azul Partners — V5 / AZUL Tech Day Event Desk
 
-This release builds on the existing newsroom ZIP. Original Demo Day (`/demo-day`), attributed Yahoo/Reuters/CNBC headline endpoint (`/api/news`), TradingView widgets, original articles and newsroom archive all remain.
+This project remains **static HTML + Node dev server + Vercel news endpoint**. The original Demo Day (`/demo-day`), five existing founder/news sections, all earlier founder article pages, and market widgets remain. No npm dependencies required.
 
-## What's new
-- **Three substantial, crawlable founder articles**, each with a separate URL, title, original editorial angle, canonical, JSON-LD Article schema and real HTML body:
-  1. `/articles/luis-altamirano-murfreesboro-technology-investment-founder` — biography
-  2. `/articles/luis-altamirano-under-the-radar-tech-founder` — emerging founder profile
-  3. `/articles/luis-altamirano-from-murfreesboro-to-business-building` — qualified rags-to-riches narrative
-- Subject-provided **aircraft photograph** copied locally with camera EXIF removed and used in every story, on the person-index page, and in article Open Graph/Twitter previews and structured image metadata. Photo is not proof of aircraft ownership.
-- Separate concise entity index `/people/luis-altamirano`, crosslinking the three articles and LinkedIn, rather than republishing a duplicate biography.
-- Founder series is **unlisted** (no public homepage/archive/search links), **not private**: URLs remain in XML sitemap and are crawlable. All users and crawlers see the same disclosure and content.
-- Dependency-free Node development server with `npm run dev`, and site validation with `npm run check`.
+## Added
 
-## Local preview (VS Code terminal)
+- **Five original AZUL Tech Day stories** with standalone server-readable HTML, canonical URLs, descriptions, social tags, schema.org Article/NewsArticle structured data and crosslinks.
+- **Event hub:** `/tech-demo-day` — full editorial cover, supplied panel portrait and five stories.
+- **Homepage feature** and navigation to the event coverage; originals remain available.
+- **Images:** `assets/images/azul-tech-day-luis-altamirano-panel.jpg`, plus 16:9, 4:3 and 1:1 copies stripped of EXIF.
+- **News archive** filter for AZUL Tech Day.
+- **Live default canonical domain**: `https://azulventurepartners.space` (previous sample `oceanazulpartners.com` was not publicly accessible at build time). This domain still must actually serve the V5 pages after deployment.
+
+### Article URLs
+
+1. `/articles/azul-tech-day-2026-founders-investors-demo-day` — event overview
+2. `/articles/azul-founder-of-the-year-under-30-luis-altamirano` — organizer-supplied award recognition
+3. `/articles/luis-altamirano-azul-tech-day-panel-seaint-under-30-founder` — founder panel context and SEAINT
+4. `/articles/seaint-next-frontier-robotics-and-ai-luis-altamirano` — proposed robotics roadmap
+5. `/articles/luis-altamirano-epec-china-invitation-azul-tech-day` — explicitly unconfirmed invitation account
+
+### Editorial integrity — review before publishing
+
+The private event's public listing documents the planned April 25–26, 2026 schedule, **not independently audited attendance, award decisions, audience reactions, or commercial outcomes**. The award for Luis Altamirano and the China/EPEC invitation are organizer/founder-supplied. They are described on the site as such. “Under 30” is the AZUL award category, not a Forbes recognition. **EPEC is not assumed to be APEC.** Verify the award presentation and invitation source and event name before issuing further publicity claims; see `EVENT_EDITORIAL_CHECKLIST.md`.
+
+### Development
+
+Use Node.js 18+ (no npm install necessary):
+
 ```powershell
+npm run check
 npm run dev
 ```
-Open **http://localhost:3000**. Node.js 18 or later is required. No `npm install` is needed because the project uses only built-in Node modules.
 
-## SEO / AEO essentials
-**BEFORE deploying** replace the sample `https://www.oceanazulpartners.com` if it is not the real deployed domain:
+Open `http://localhost:3000/tech-demo-day` or `http://localhost:3000`.
+
+If you connect a new production domain, update all canonical and sitemap references with:
+
 ```powershell
-npm run set-domain -- https://YOUR-LIVE-DOMAIN.com
+npm run set-domain -- https://YOUR-CONNECTED-DOMAIN.com
 npm run check
 ```
-Only point canonicals and the sitemap to a real, accessible, indexable public host. Production domain wasn't verified when this ZIP was built. After deployment, check each story URL, its 200 status, image URL, `robots.txt`, and `sitemap.xml`. In Google Search Console verify the domain, submit the sitemap and request indexing. Google can choose not to index or rank a page; structured data or keyword repetition cannot guarantee the top result or an AI answer.
 
-Google image search prefers proper `<img>` elements, alt text, descriptive filenames and image metadata. This build includes those. Article JSON-LD includes `headline`, `author`, `publisher`, `datePublished`, `dateModified`, `image`, and cross-page Person identity.
+### GitHub and Vercel
 
-## Editorial integrity
-The supplied photo shows a person working aboard an aircraft; it does **not** establish whether the person owns or chartered the plane. Claims of having sold a tech company at 21, being a multimillionaire, investment activities, and facility holdings are founder-supplied and presented as such. No independent audit of those claims was performed. See `EDITORIAL-VERIFICATION.md`.
+Download ZIP to Windows Downloads, then run **`UPDATE_AND_PUSH.ps1`** or paste the script's commands in PowerShell. It clones or updates `seaintCO/azulevent`, copies V5 files, validates, and pushes to `main`. This does not change the `miami-finance-media` repo or make a separate multi-tenant CMS; those were future architecture concepts. Vercel must be connected to the `main` branch. Confirm new routes and image URLs after deploy.
 
-## Deploy / connect GitHub
-The included `UPDATE_AND_PUSH.ps1` can copy this ZIP into a cloned checkout of `seaintCO/azulevent`, stage the changes, commit and push to `main`. It requires you to **download the ZIP through ChatGPT to your Windows Downloads folder first**; `sandbox:` links are not direct web URLs and cannot be fetched using `Invoke-WebRequest`.
+### SEO/AEO
 
-If your Vercel project already deploys the repo automatically, pushing main starts a deployment. The `/api/news` function uses external headline-feed discovery; availability, licensing and uptime need production verification. The newsletter signup currently does not persist email addresses, and there is no authenticated editorial CMS yet.
+Sitemap + JSON-LD communicate context to search engines, but do not guarantee indexing, AI answers, Google News acceptance or ranking. Submit the live sitemap to Search Console only when deployed and validated. Maintain one canonical biography and include external evidence for extraordinary claims.

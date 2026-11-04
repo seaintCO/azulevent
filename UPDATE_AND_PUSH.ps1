@@ -3,8 +3,8 @@
 $ErrorActionPreference = 'Stop'
 $repository = 'https://github.com/seaintCO/azulevent.git'
 $checkout = Join-Path $HOME 'Desktop\azulevent'
-$zip = Join-Path $HOME 'Downloads\Ocean-Azul-Newsroom-V4-Private-Jet-3-Articles.zip'
-$extract = Join-Path $env:TEMP 'Ocean-Azul-Newsroom-V4-Extract'
+$zip = Join-Path $HOME 'Downloads\Ocean-Azul-Newsroom-V5-AZUL-Tech-Day-Event-Stories.zip'
+$extract = Join-Path $env:TEMP 'Ocean-Azul-Newsroom-V5-Extract'
 
 if (-not (Test-Path -LiteralPath $zip)) {
     throw "ZIP missing: $zip — download from ChatGPT and save in Downloads."
@@ -37,17 +37,17 @@ Get-ChildItem -LiteralPath $source -Force | ForEach-Object {
 npm run check
 if ($LASTEXITCODE -ne 0) { throw 'Site validation failed.' }
 
-# If oceanazulpartners.com is NOT your real production domain, run this BEFORE committing:
+# If azulventurepartners.space is NOT your real production domain, run this BEFORE committing:
 # npm run set-domain -- https://YOUR-REAL-DOMAIN.com
 
 git add -A
 git diff --cached --quiet
 if ($LASTEXITCODE -eq 1) {
-    git commit -m 'Ocean Azul V4: 3 founder profiles, aircraft photo, SEO schema and npm dev'
+    git commit -m 'Ocean Azul V5: AZUL Tech Day event desk, five founder stories and SEO'
     if ($LASTEXITCODE -ne 0) { throw 'Git commit failed.' }
     git push origin main
     if ($LASTEXITCODE -ne 0) { throw 'Git push failed. Authentication or remote sync may be required.' }
-    Write-Host 'SUCCESS: pushed Ocean Azul Newsroom V4 to GitHub main' -ForegroundColor Green
+    Write-Host 'SUCCESS: pushed Ocean Azul Newsroom V5 to GitHub main' -ForegroundColor Green
 } elseif ($LASTEXITCODE -eq 0) {
     Write-Host 'No changes; GitHub checkout already matches this build.' -ForegroundColor Yellow
 } else { throw 'git diff failed.' }
