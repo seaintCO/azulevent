@@ -3,14 +3,14 @@ window.OAP_POSTS = [
     "slug": "azul-tech-day-2026-founders-investors-demo-day",
     "category": "AZUL Tech Day",
     "eyebrow": "EVENT COVERAGE",
-    "title": "Inside AZUL Tech Day 2026: The Founder Conversations Behind a Private Demo Day",
-    "dek": "A closer look at the private technology Demo Day concept, its founder-first format and the conversations it aims to create.",
+    "title": "Inside AZUL Tech Week in Miami: Founder Debates, International Investors and AI Startups",
+    "dek": "A reported Miami event series connected April competition roots with October 22–31 founder coverage, AI startup showcases, overseas investors and hard technology debates.",
     "author": "Ocean Azul Partners Editorial",
-    "published": "Oct 30 · Special edition",
+    "published": "Oct 22–31 · Miami special coverage",
     "readTime": "5 min read",
-    "image": "/assets/images/azul-tech-day-panel-4x3.jpg",
+    "image": "/assets/images/azul-tech-day-miami-hero-4x3.png",
     "body": [
-      "The event program emphasizes intimate founder presentations, technical diligence and investor conversations over conference spectacle."
+      "A Miami editorial series connected AZUL's April competition roots with October 22–31 founder conversations, AI startup showcases, and investor debate over what comes next in technology."
     ],
     "articlePath": "/articles/azul-tech-day-2026-founders-investors-demo-day"
   },

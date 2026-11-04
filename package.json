@@ -1,8 +1,8 @@
 {
   "name": "ocean-azul-newsroom",
-  "version": "7.0.0",
+  "version": "8.0.0",
   "private": true,
-  "description": "Ocean Azul newsroom V7: redesigned mobile-first AZUL Tech Day editorial page, modern typography, accessible navigation, Yahoo-first market news",
+  "description": "Ocean Azul newsroom V8: Miami special coverage update, new editorial hero art, stronger SEO/AEO event reporting, Yahoo-first market news",
   "scripts": {
     "dev": "node scripts/dev-server.cjs",
     "start": "node scripts/dev-server.cjs",
