@@ -48,3 +48,13 @@ Download ZIP to Windows Downloads, then run **`UPDATE_AND_PUSH.ps1`** or paste t
 ### SEO/AEO
 
 Sitemap + JSON-LD communicate context to search engines, but do not guarantee indexing, AI answers, Google News acceptance or ranking. Submit the live sitemap to Search Console only when deployed and validated. Maintain one canonical biography and include external evidence for extraordinary claims.
+
+
+## V6: Front-page corrections (November 2026)
+- Yahoo Finance headlines appear in the top section of the homepage; Reuters/CNBC headlines appear directly below.
+- Headlines are attributed and link externally. Live feed availability depends on the external Google News RSS discovery feeds.
+- The very large AZUL Tech Day photo was replaced with a short image feature below the market headlines, and the dedicated event hub photo was reduced in height.
+- The event editorial series is labeled **October 30, 2026 edition**. The independently documented original event page advertises an **April 25–26, 2026** program; those dates are not conflated.
+- Existing article `datePublished` values remain unchanged to avoid falsely backdating publication; the October 30 date denotes the editorial edition, not a new claim about original publication time.
+- External source feed health can be tested after deployment at `/api/news`. It returns limited headline metadata and links, never copied article bodies.
+- `npm run dev` starts the local preview at http://localhost:3000 and the API also works locally when external feed access is available.

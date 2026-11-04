@@ -1,56 +1,73 @@
-# Copy this script into VS Code PowerShell after downloading the ZIP from ChatGPT.
-# Default: ZIP in Downloads; repo on Desktop; push to seaintCO/azulevent main; preview on localhost:3000.
+# Ocean Azul V6 — extract latest ZIP from Downloads, update seaintCO/azulevent main, test, push, start local preview.
+# This script does NOT force-push, delete files, or overwrite uncommitted changes.
 $ErrorActionPreference = 'Stop'
-$repository = 'https://github.com/seaintCO/azulevent.git'
-$checkout = Join-Path $HOME 'Desktop\azulevent'
-$zip = Join-Path $HOME 'Downloads\Ocean-Azul-Newsroom-V5-AZUL-Tech-Day-Event-Stories.zip'
-$extract = Join-Path $env:TEMP 'Ocean-Azul-Newsroom-V5-Extract'
+$repoUrl = 'https://github.com/seaintCO/azulevent.git'
+$desktop = [Environment]::GetFolderPath('Desktop')
+$repoDir = Join-Path $desktop 'azulevent'
+$zipName = 'Ocean-Azul-Newsroom-V6-Yahoo-First-Compact-Event.zip'
+$zipPath = Join-Path (Join-Path $HOME 'Downloads') $zipName
+$tempDir = Join-Path $env:TEMP 'OceanAzulV6Extract'
 
-if (-not (Test-Path -LiteralPath $zip)) {
-    throw "ZIP missing: $zip — download from ChatGPT and save in Downloads."
+if (-not (Test-Path -LiteralPath $zipPath)) {
+  throw "Please download $zipName from ChatGPT and save it to Downloads first. Not found: $zipPath"
 }
-if (-not (Get-Command git -ErrorAction SilentlyContinue)) { throw 'Install Git for Windows first.' }
-if (-not (Get-Command node -ErrorAction SilentlyContinue)) { throw 'Install Node.js 18+ first.' }
+foreach ($toolName in @('git', 'node', 'npm')) {
+  if (-not (Get-Command $toolName -ErrorAction SilentlyContinue)) {
+    throw "Missing required program: $toolName. Install Git for Windows and Node.js LTS first."
+  }
+}
+Write-Host 'OCEAN AZUL V6: Updating the website and GitHub main...' -ForegroundColor Cyan
 
-if (Test-Path -LiteralPath (Join-Path $checkout '.git')) {
-    Set-Location $checkout
-    if ((git status --porcelain)) { throw 'Repo has local changes. Commit/stash them before updating.' }
-    git switch main
-    if ($LASTEXITCODE -ne 0) { throw 'Could not switch to main.' }
-    git pull --ff-only origin main
-    if ($LASTEXITCODE -ne 0) { throw 'Git pull failed. Resolve branch divergence before continuing.' }
+if (Test-Path -LiteralPath (Join-Path $repoDir '.git')) {
+  Set-Location $repoDir
+  $origin = git remote get-url origin
+  if ($LASTEXITCODE -ne 0 -or $origin -notmatch 'seaintCO/azulevent(\.git)?$') {
+    throw 'This local checkout does not point to seaintCO/azulevent. Aborting to avoid pushing to the wrong repository.'
+  }
+  $dirty = git status --porcelain
+  if ($LASTEXITCODE -ne 0 -or $dirty) { throw 'Uncommitted local changes exist. Commit or stash them first; this script will not overwrite them.' }
+  git switch main
+  if ($LASTEXITCODE -ne 0) { throw 'Could not switch to main.' }
+  git pull --ff-only origin main
+  if ($LASTEXITCODE -ne 0) { throw 'Git pull failed. Resolve branch divergence before continuing.' }
 } else {
-    if (Test-Path -LiteralPath $checkout) { throw "Folder already exists without .git: $checkout" }
-    git clone $repository $checkout
-    if ($LASTEXITCODE -ne 0) { throw 'Git clone failed.' }
-    Set-Location $checkout
+  if (Test-Path -LiteralPath $repoDir) { throw "Folder already exists but is not a Git checkout: $repoDir" }
+  git clone $repoUrl $repoDir
+  if ($LASTEXITCODE -ne 0) { throw 'Git clone failed.' }
+  Set-Location $repoDir
+  git switch main
+  if ($LASTEXITCODE -ne 0) { throw 'Could not switch to main.' }
 }
-if (Test-Path -LiteralPath $extract) { Remove-Item -LiteralPath $extract -Recurse -Force }
-Expand-Archive -LiteralPath $zip -DestinationPath $extract -Force
-$source = $extract
-$items = @(Get-ChildItem -LiteralPath $extract -Force)
-if ($items.Count -eq 1 -and $items[0].PSIsContainer) { $source = $items[0].FullName }
+
+if (Test-Path -LiteralPath $tempDir) { Remove-Item -LiteralPath $tempDir -Recurse -Force }
+Expand-Archive -LiteralPath $zipPath -DestinationPath $tempDir -Force
+$source = $tempDir
+$rootItems = @(Get-ChildItem -LiteralPath $tempDir -Force)
+if ($rootItems.Count -eq 1 -and $rootItems[0].PSIsContainer) { $source = $rootItems[0].FullName }
+if (-not (Test-Path -LiteralPath (Join-Path $source 'package.json'))) {
+  throw 'The ZIP does not have the expected Ocean Azul package.json at the root.'
+}
 Get-ChildItem -LiteralPath $source -Force | ForEach-Object {
-    if ($_.Name -ne '.git') { Copy-Item -LiteralPath $_.FullName -Destination $checkout -Recurse -Force }
+  if ($_.Name -ne '.git' -and $_.Name -ne 'node_modules') {
+    Copy-Item -LiteralPath $_.FullName -Destination $repoDir -Recurse -Force
+  }
 }
-
+Set-Location $repoDir
 npm run check
-if ($LASTEXITCODE -ne 0) { throw 'Site validation failed.' }
-
-# If azulventurepartners.space is NOT your real production domain, run this BEFORE committing:
-# npm run set-domain -- https://YOUR-REAL-DOMAIN.com
+if ($LASTEXITCODE -ne 0) { throw 'Site validation failed. No changes were pushed.' }
 
 git add -A
 git diff --cached --quiet
 if ($LASTEXITCODE -eq 1) {
-    git commit -m 'Ocean Azul V5: AZUL Tech Day event desk, five founder stories and SEO'
-    if ($LASTEXITCODE -ne 0) { throw 'Git commit failed.' }
-    git push origin main
-    if ($LASTEXITCODE -ne 0) { throw 'Git push failed. Authentication or remote sync may be required.' }
-    Write-Host 'SUCCESS: pushed Ocean Azul Newsroom V5 to GitHub main' -ForegroundColor Green
+  git commit -m 'Ocean Azul V6: Yahoo-first market desk, compact AZUL event and Oct 30 edition'
+  if ($LASTEXITCODE -ne 0) { throw 'Git commit failed.' }
+  git push origin main
+  if ($LASTEXITCODE -ne 0) { throw 'Git push failed. Check GitHub authentication.' }
+  Write-Host 'SUCCESS: Website V6 pushed to GitHub main.' -ForegroundColor Green
 } elseif ($LASTEXITCODE -eq 0) {
-    Write-Host 'No changes; GitHub checkout already matches this build.' -ForegroundColor Yellow
-} else { throw 'git diff failed.' }
+  Write-Host 'No new changes to push.' -ForegroundColor Yellow
+} else { throw 'Could not inspect Git changes.' }
 
-if (Get-Command code -ErrorAction SilentlyContinue) { code $checkout }
+if (Get-Command code -ErrorAction SilentlyContinue) { code $repoDir }
+Write-Host 'Preview the newsroom at http://localhost:3000 (Ctrl+C to stop).' -ForegroundColor Cyan
 npm run dev

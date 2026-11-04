@@ -15,4 +15,11 @@ if(!read('tech-demo-day/index.html').includes('event-stories-grid'))failures.pus
 if(!fs.existsSync(path.join(root,'assets/images/azul-tech-day-luis-altamirano-panel.jpg')))failures.push('Missing user-provided event photo');
 if(read('robots.txt').includes('www.oceanazulpartners.com'))failures.push('Old sample domain still in robots.txt');
 if(failures.length){console.error(failures.join('\n'));process.exit(1);}
-console.log('PASS: V5 — five event stories, event hub, article SEO schema, sitemap, photo, existing unlisted founder series.');
+const front=read('index.html');
+if(front.indexOf('id=\"yahoo-news\"')<0)failures.push('Yahoo Finance front-page headlines are absent');
+if(front.indexOf('id=\"yahoo-news\"')>front.indexOf('id=\"azul-tech-day\"'))failures.push('Yahoo headlines must precede event coverage');
+if(!front.includes('OCTOBER 30, 2026 EDITORIAL EDITION'))failures.push('October 30 editorial edition missing');
+if(!read('assets/styles.css').includes('.event-brief-photo{display:block;position:relative;height:185px'))failures.push('Compact event photo styles missing');
+if(!read('assets/app.js').includes('Yahoo Finance headlines are temporarily unavailable'))failures.push('Yahoo empty-feed fallback missing');
+if(failures.length){console.error(failures.join('\n'));process.exit(1);}
+console.log('PASS: V6 — Yahoo-first market desk, compact AZUL images, October 30 editorial edition, preservation of existing founder stories and SEO.');

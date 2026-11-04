@@ -6,7 +6,7 @@ window.OAP_POSTS = [
     "title": "Inside AZUL Tech Day 2026: The Founder Conversations Behind a Private Demo Day",
     "dek": "A closer look at the private technology Demo Day concept, its founder-first format and the conversations it aims to create.",
     "author": "Ocean Azul Partners Editorial",
-    "published": "November 3, 2026",
+    "published": "Oct 30 · Special edition",
     "readTime": "5 min read",
     "image": "/assets/images/azul-tech-day-panel-4x3.jpg",
     "body": [
@@ -21,7 +21,7 @@ window.OAP_POSTS = [
     "title": "AZUL Founder of the Year Under 30: Luis Altamirano in the Organizer Spotlight",
     "dek": "An organizer-supplied recognition announcement highlights SEAINT co-founder Luis Altamirano and the business areas he says he is pursuing.",
     "author": "Azul Venture Partners Communications",
-    "published": "November 3, 2026",
+    "published": "Oct 30 · Special edition",
     "readTime": "4 min read",
     "image": "/assets/images/azul-tech-day-panel-4x3.jpg",
     "body": [
@@ -36,7 +36,7 @@ window.OAP_POSTS = [
     "title": "On the Founder Stage: Luis Altamirano, SEAINT and the Under-the-Radar Tech Conversation",
     "dek": "A founder-provided panel image accompanies a closer examination of Altamirano’s approach to operational AI and building a technology company outside the usual spotlight.",
     "author": "Ocean Azul Partners Profile Desk",
-    "published": "November 3, 2026",
+    "published": "Oct 30 · Special edition",
     "readTime": "5 min read",
     "image": "/assets/images/azul-tech-day-panel-4x3.jpg",
     "body": [
@@ -51,7 +51,7 @@ window.OAP_POSTS = [
     "title": "SEAINT’s Next Frontier: Luis Altamirano Outlines an AI-to-Robotics Ambition",
     "dek": "SEAINT’s co-founder describes a proposed move from software automation into robotics and intelligent devices, with substantial execution questions still ahead.",
     "author": "Ocean Azul Partners Technology Desk",
-    "published": "November 3, 2026",
+    "published": "Oct 30 · Special edition",
     "readTime": "5 min read",
     "image": "/assets/images/azul-tech-day-panel-4x3.jpg",
     "body": [
@@ -66,7 +66,7 @@ window.OAP_POSTS = [
     "title": "Luis Altamirano Describes a China Invitation as SEAINT Looks Beyond the U.S.",
     "dek": "Altamirano says he received an invitation associated with an event he identifies as “EPEC China.” The precise event and participation details remain unverified.",
     "author": "Ocean Azul Partners Profile Desk",
-    "published": "November 3, 2026",
+    "published": "Oct 30 · Special edition",
     "readTime": "4 min read",
     "image": "/assets/images/azul-tech-day-panel-4x3.jpg",
     "body": [
