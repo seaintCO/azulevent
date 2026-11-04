@@ -23,3 +23,10 @@ if(!read('assets/styles.css').includes('.event-brief-photo{display:block;positio
 if(!read('assets/app.js').includes('Yahoo Finance headlines are temporarily unavailable'))failures.push('Yahoo empty-feed fallback missing');
 if(failures.length){console.error(failures.join('\n'));process.exit(1);}
 console.log('PASS: V6 — Yahoo-first market desk, compact AZUL images, October 30 editorial edition, preservation of existing founder stories and SEO.');
+
+const hub=read('tech-demo-day/index.html');
+if(!hub.includes('event-standfirst')||!hub.includes('event-editorial-note'))failures.push('V7 editorial hub markup missing');
+if(!read('assets/styles.css').includes('@media(max-width:820px)')||!read('assets/styles.css').includes('body[data-page="event"] .event-hero-layout{grid-template-columns:minmax(0,1fr)'))failures.push('V7 responsive hero reset missing');
+if(!read('assets/app.js').includes('aria-controls=\"mobile-nav\"'))failures.push('V7 mobile menu missing');
+if(failures.length){console.error(failures.join('\n'));process.exit(1)}
+console.log('PASS: V7 mobile hero, event editorial design and accessible navigation.');

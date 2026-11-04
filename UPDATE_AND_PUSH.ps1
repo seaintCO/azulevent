@@ -1,12 +1,12 @@
-# Ocean Azul V6 — extract latest ZIP from Downloads, update seaintCO/azulevent main, test, push, start local preview.
+# Ocean Azul V7 — extract latest ZIP from Downloads, update seaintCO/azulevent main, test, push, start local preview.
 # This script does NOT force-push, delete files, or overwrite uncommitted changes.
 $ErrorActionPreference = 'Stop'
 $repoUrl = 'https://github.com/seaintCO/azulevent.git'
 $desktop = [Environment]::GetFolderPath('Desktop')
 $repoDir = Join-Path $desktop 'azulevent'
-$zipName = 'Ocean-Azul-Newsroom-V6-Yahoo-First-Compact-Event.zip'
+$zipName = 'Ocean-Azul-Newsroom-V7-Mobile-Editorial-Fix.zip'
 $zipPath = Join-Path (Join-Path $HOME 'Downloads') $zipName
-$tempDir = Join-Path $env:TEMP 'OceanAzulV6Extract'
+$tempDir = Join-Path $env:TEMP 'OceanAzulV7Extract'
 
 if (-not (Test-Path -LiteralPath $zipPath)) {
   throw "Please download $zipName from ChatGPT and save it to Downloads first. Not found: $zipPath"
@@ -16,7 +16,7 @@ foreach ($toolName in @('git', 'node', 'npm')) {
     throw "Missing required program: $toolName. Install Git for Windows and Node.js LTS first."
   }
 }
-Write-Host 'OCEAN AZUL V6: Updating the website and GitHub main...' -ForegroundColor Cyan
+Write-Host 'OCEAN AZUL V7: Updating the website and GitHub main...' -ForegroundColor Cyan
 
 if (Test-Path -LiteralPath (Join-Path $repoDir '.git')) {
   Set-Location $repoDir
@@ -59,11 +59,11 @@ if ($LASTEXITCODE -ne 0) { throw 'Site validation failed. No changes were pushed
 git add -A
 git diff --cached --quiet
 if ($LASTEXITCODE -eq 1) {
-  git commit -m 'Ocean Azul V6: Yahoo-first market desk, compact AZUL event and Oct 30 edition'
+  git commit -m 'Ocean Azul V7: Yahoo-first market desk, compact AZUL event and Oct 30 edition'
   if ($LASTEXITCODE -ne 0) { throw 'Git commit failed.' }
   git push origin main
   if ($LASTEXITCODE -ne 0) { throw 'Git push failed. Check GitHub authentication.' }
-  Write-Host 'SUCCESS: Website V6 pushed to GitHub main.' -ForegroundColor Green
+  Write-Host 'SUCCESS: Website V7 pushed to GitHub main.' -ForegroundColor Green
 } elseif ($LASTEXITCODE -eq 0) {
   Write-Host 'No new changes to push.' -ForegroundColor Yellow
 } else { throw 'Could not inspect Git changes.' }

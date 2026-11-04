@@ -58,3 +58,15 @@ Sitemap + JSON-LD communicate context to search engines, but do not guarantee in
 - Existing article `datePublished` values remain unchanged to avoid falsely backdating publication; the October 30 date denotes the editorial edition, not a new claim about original publication time.
 - External source feed health can be tested after deployment at `/api/news`. It returns limited headline metadata and links, never copied article bodies.
 - `npm run dev` starts the local preview at http://localhost:3000 and the API also works locally when external feed access is available.
+
+
+## V7: Mobile-first editorial redesign
+
+- `/tech-demo-day` now uses a clean editorial hero with responsive one-column layout below 820px.
+- Photo is a compact 16:10 crop with a separate photo credit; editorial sourcing notes remain present at the end of the section.
+- Founder coverage is a lead story with four text-first related stories, eliminating repeated large images.
+- Typography uses Manrope and IBM Plex Mono with local font fallbacks.
+- The newsroom now includes an accessible mobile navigation toggle.
+- V6 finance headlines, original Demo Day, all articles, SEO, and API are unchanged.
+
+Local development: `npm run dev` (http://localhost:3000). Check: `npm run check`.
